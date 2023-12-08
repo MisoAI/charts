@@ -1,0 +1,13 @@
+apiVersion: v2
+name: pypiserver
+version: 1.0.0
+kubeVersion: ">= 1.19.0-0"
+description: PyPI compatible server for pip or easy_install.
+type: application
+home: https://github.com/pypiserver/pypiserver
+sources:
+  - https://github.com/MisoAI/charts/tree/master/pypiserver
+  - https://github.com/pypiserver/pypiserver
+  - https://pypi.org/project/pypiserver/
+icon: https://raw.githubusercontent.com/pypiserver/pypiserver/master/pypiserver_logo.png
+appVersion: 2.0.1

@@ -1,0 +1,68 @@
+name: Helm
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package:
+          - pypiserver
+    steps:
+      - uses: actions/checkout@v2
+      - uses: azure/setup-helm@v1
+        with:
+          version: v3.12.1
+        id: install
+      - name: Configure Helm repo
+        run: helm repo add stable https://charts.helm.sh/stable
+      - name: Lint chart
+        run: helm lint ${{ matrix.package }}
+      - name: Package chart
+        run: |
+          helm dep build ${{ matrix.package }}
+          helm package ${{ matrix.package }} -d dist
+      - name: Archive packaged chart
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-${{matrix.package}}
+          path: dist/*.tgz
+
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: test
+    steps:
+      - uses: actions/checkout@v2
+      - uses: azure/setup-helm@v1
+        with:
+          version: v3.12.1
+        id: install
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v2
+      - name: Configure Git
+        run: |
+          git config --global user.email "gh-actions@github.com"
+          git config --global user.name "GitHub Action"
+      - name: Publish charts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Use HTTPS endpoint and authenticate using the GITHUB_TOKEN
+          git clone https://github.com/${{ github.repository }}.git charts -b gh-pages
+          mv dist-*/*.tgz charts/
+          cd charts
+          helm repo index .
+          git add .
+          git commit --message "GitHub Action: ${{ github.repository }}@${{ github.sha }}"
+          # Set up the token for the push command
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git gh-pages
