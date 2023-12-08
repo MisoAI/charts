@@ -17,8 +17,8 @@ jobs:
         package:
           - pypiserver
     steps:
-      - uses: actions/checkout@v2
-      - uses: azure/setup-helm@v1
+      - uses: actions/checkout@v4
+      - uses: azure/setup-helm@v3
         with:
           version: v3.12.1
         id: install
@@ -42,8 +42,8 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     needs: test
     steps:
-      - uses: actions/checkout@v2
-      - uses: azure/setup-helm@v1
+      - uses: actions/checkout@v4
+      - uses: azure/setup-helm@v3
         with:
           version: v3.12.1
         id: install
