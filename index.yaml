@@ -3,9 +3,9 @@ entries:
   pypiserver:
   - apiVersion: v2
     appVersion: 2.0.1
-    created: "2023-12-08T10:16:57.109137426Z"
+    created: "2023-12-08T10:19:31.269545535Z"
     description: PyPI compatible server for pip or easy_install.
-    digest: a009cb645ec6b2539dae1675f94f0d293bbad45ef432affea04cd22bb947056f
+    digest: 66c82d4b0a46d695f2e243ff9e5fecbee820ebb230a4dec226e41b5698563891
     home: https://github.com/pypiserver/pypiserver
     icon: https://raw.githubusercontent.com/pypiserver/pypiserver/master/pypiserver_logo.png
     kubeVersion: '>= 1.19.0-0'
@@ -18,4 +18,4 @@ entries:
     urls:
     - pypiserver-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-08T10:16:57.108059851Z"
+generated: "2023-12-08T10:19:31.268959938Z"
