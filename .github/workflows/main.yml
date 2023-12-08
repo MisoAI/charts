@@ -31,7 +31,7 @@ jobs:
           helm dep build ${{ matrix.package }}
           helm package ${{ matrix.package }} -d dist
       - name: Archive packaged chart
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: dist-${{matrix.package}}
           path: dist/*.tgz
@@ -48,7 +48,7 @@ jobs:
           version: v3.12.1
         id: install
       - name: Download all workflow run artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
       - name: Configure Git
         run: |
           git config --global user.email "gh-actions@github.com"
