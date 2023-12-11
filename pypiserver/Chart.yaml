@@ -1,6 +1,6 @@
 apiVersion: v2
 name: pypiserver
-version: 1.0.2
+version: 1.0.3
 kubeVersion: ">= 1.19.0-0"
 description: PyPI compatible server for pip or easy_install.
 type: application
