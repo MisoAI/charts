@@ -3,7 +3,24 @@ entries:
   pypiserver:
   - apiVersion: v2
     appVersion: 2.0.1
-    created: "2023-12-11T09:18:08.926696254Z"
+    created: "2023-12-11T09:29:12.904048423Z"
+    description: PyPI compatible server for pip or easy_install.
+    digest: a30f058b5c85a9859a1a52f41b53a21aa38fa3cf2a178da95b9e336a7f8a3322
+    home: https://github.com/pypiserver/pypiserver
+    icon: https://raw.githubusercontent.com/pypiserver/pypiserver/master/pypiserver_logo.png
+    kubeVersion: '>= 1.19.0-0'
+    name: pypiserver
+    sources:
+    - https://github.com/MisoAI/charts/tree/master/pypiserver
+    - https://github.com/pypiserver/pypiserver
+    - https://pypi.org/project/pypiserver/
+    type: application
+    urls:
+    - pypiserver-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 2.0.1
+    created: "2023-12-11T09:29:12.903504677Z"
     description: PyPI compatible server for pip or easy_install.
     digest: 1aa6ebf23b69954c2fa963a79aa104a65f3c7fa8c3b4ec0dd0862ece5f3d2733
     home: https://github.com/pypiserver/pypiserver
@@ -20,7 +37,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 2.0.1
-    created: "2023-12-11T09:18:08.926214573Z"
+    created: "2023-12-11T09:29:12.902936055Z"
     description: PyPI compatible server for pip or easy_install.
     digest: dc41878a04cf88b41acc1158d21d40977550d3a3bd8cb4917eea49b9e47b53e5
     home: https://github.com/pypiserver/pypiserver
@@ -35,4 +52,4 @@ entries:
     urls:
     - pypiserver-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-11T09:18:08.925563003Z"
+generated: "2023-12-11T09:29:12.902155488Z"
