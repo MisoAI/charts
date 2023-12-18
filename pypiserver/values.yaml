@@ -61,6 +61,8 @@ service:
   loadBalancerSourceRanges: []
   # nodePort: 30000
 
+rolloutStrategy: RollingUpdate
+
 persistence:
   enabled: false
   ## PyPi server packages Persistent Volume Storage Class
